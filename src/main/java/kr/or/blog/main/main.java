@@ -17,4 +17,10 @@ class TestController{
         System.out.println("Test");
         return "hello";
     }
+
+    @RequestMapping(value="/freemarker")
+    public String freemarker(){
+        System.out.println("freemarker!!");
+        return "freemarker";
+    }
 }
