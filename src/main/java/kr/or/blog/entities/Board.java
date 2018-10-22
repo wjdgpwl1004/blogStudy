@@ -9,6 +9,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  * @Entity 
  * 객체를 테이블과 매핑할 엔티티라고  JPA에게 알려준다. 
@@ -43,6 +46,8 @@ import javax.persistence.TemporalType;
 */
 @Entity
 @Table(name="BOARD")
+@Data
+@NoArgsConstructor
 public class Board{
 
     /**
