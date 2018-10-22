@@ -15,25 +15,25 @@ import lombok.NoArgsConstructor;
 public class BoardMenu{
 
     @Id
-    @Column(name="seq", nullable=false, length=20)
+    @Column(name="SEQ", nullable=false, length=20)
     private String seq;
 
-    @Column(name="member_seq", nullable=false, length=20)
+    @Column(name="MEMBER_SEQ", nullable=false, length=20)
     private String memberSeq;
 
-    @Column(name="menu_name", nullable=true, length=100)
+    @Column(name="MENU_NAME", nullable=true, length=100)
     private String menuName;
 
-    @Column(name="rec_sts", nullable=true, length=1)
+    @Column(name="REC_STS", nullable=true, length=1)
     private String recSts;
 
-    @Column(name="menu_group")
+    @Column(name="MENU_GROUP")
     private int menuGroup;
 
-    @Column(name="menu_sort")
+    @Column(name="MENU_SORT")
     private int menuSort;
 
-    @Column(name="menu_depth")
+    @Column(name="MENU_DEPTH")
     private int menuDepth;
 
 }

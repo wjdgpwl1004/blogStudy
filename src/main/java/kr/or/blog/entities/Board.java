@@ -96,37 +96,37 @@ public class Board{
     length 
     문자 길이 제약조건으로 기본갓은 255 이며, String 타입에만 적용가능하다.
      */
-    @Column(name="board_seq", nullable=false, length=20)
+    @Column(name="BOARD_SEQ", nullable=false, length=20)
     private String boardSeq;
     
-    @Column(name="board_name", nullable=true, length=100)
+    @Column(name="BOARD_NAME", nullable=true, length=100)
     private String boardName;
 
-    @Column(name="board_title", nullable=true, length=200)
+    @Column(name="BOARD_TITLE", nullable=true, length=200)
     private String boardTitle;
 
-    @Column(name="board_content",nullable=true, length=4000)
+    @Column(name="BOARD_CONTENT",nullable=true, length=4000)
     private String boardContent;
 
-    @Column(name="board_writer", nullable=true, length=20)
+    @Column(name="BOARD_WRITER", nullable=true, length=20)
     private String boardWriter;
 
-    @Column(name="rec_sts", nullable=true, length=1)
+    @Column(name="REC_STS", nullable=true, length=1)
     private String recSts;
 
-    @Column(name="board_secret", nullable=true, length=1)
+    @Column(name="BOARD_SECRET", nullable=true, length=1)
     private String boardSecret;
 
-    @Column(name="board_password", nullable=true)
+    @Column(name="BOARD_PASSWORD", nullable=true)
     private int boardPassword;
 
-    @Column(name="board_hit", nullable=true)
+    @Column(name="BOARD_HIT", nullable=true)
     private int boardHit;
 
-    @Column(name="board_good", nullable=true)
+    @Column(name="BOARD_GOOD", nullable=true)
     private int boardGood;
 
-    @Column(name="board_bad", nullable=true)
+    @Column(name="BOARD_BAD", nullable=true)
     private int boardBad;
 
 
@@ -141,9 +141,11 @@ public class Board{
     TemporalType.TIMESTAMP : 날짜와 시간, 데이터베이스 timestamp와 매핑 2013-10-11 11:11:11
      */
     @Temporal(TemporalType.DATE)
+    @Column(name="CREATE_DATE",nullable=true)
     private Date createDate;
 
     @Temporal(TemporalType.DATE)
+    @Column(name="UPDATE_DATE",nullable=true)
     private Date updateDate;
 
     /**
@@ -160,7 +162,7 @@ public class Board{
     EnumType.STRING : enum의 이름을 디비에 저장.
 
     . 매핑정보가없을때
-    매핑 어노테이션을생r략하면필드명 그대로 칼럼명으로 매핑한다.
+    매핑 어노테이션을생략하면필드명 그대로 칼럼명으로 매핑한다.
      */
 
 }
