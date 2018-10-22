@@ -8,8 +8,7 @@ class TestController{
 
     @RequestMapping(value="/")
     public String index(){
-        System.out.println("Test!!");
-        System.out.println("master_branch");
+        System.out.println("master_branch!!!");
         return "index";
     }
 
