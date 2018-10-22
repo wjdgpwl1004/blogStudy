@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class File{
 
     @Id
-    @Column(name="seq",nullable=false,length=20)
+    @Column(name="SEQ",nullable=false,length=20)
     private String seq;
 
     @Column(name="UPNAME",nullable=true,length=200)
