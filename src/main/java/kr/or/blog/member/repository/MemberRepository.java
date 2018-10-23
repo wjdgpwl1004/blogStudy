@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
 import kr.or.blog.entities.Member;
 /**
@@ -20,7 +19,7 @@ import kr.or.blog.entities.Member;
     혹은 페이징 처리, 검색 등이 가능한 PagingAndSortingRepository<T,ID> 이나 JPA 에 특화된 몇 개의 기능을 가진 JpaRepository<T,ID> 를 사용할 수도 있습니다.
  * 
  */
-@Repository
+
 public interface MemberRepository extends CrudRepository<Member,String>{
     
     @Query("select m from Member m")
