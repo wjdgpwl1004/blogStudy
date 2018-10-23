@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html lang="ko">
-<#include HEADER>
+<#include "/template/meta.ftl">
 <body>
-<a href="/"><img src="/img/logo.png"></a>
-<#include template>
+<#include HEADER>
+	<div class="wrapper">
+        <#if LEFT?exists><#include LEFT></#if>
+                <div class="content">
+                        <div class="card">
+                                <#include template>
+                        </div>
+                </div>
+        </div>
+<#include FOOTER>    
 </body>
 </html>

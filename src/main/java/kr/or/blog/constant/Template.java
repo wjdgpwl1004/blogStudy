@@ -10,6 +10,7 @@ public abstract class Template {
     public final static String SUFFIX = ".ftl";
     // return templates
     public final static String MAIN = "template/main";
+    public final static String MAIN_LEFT = "/template/left";
     public final static String MAIN_HEADER = "/template/header";
     public final static String MAIN_FOOTER = "/template/footer";
 
@@ -26,6 +27,7 @@ public abstract class Template {
         templateMap = new HashMap<String,String>();
         templateMap.put("MAIN", MAIN);
         templateMap.put("MAIN_HEADER", MAIN_HEADER);
+        templateMap.put("MAIN_LEFT",MAIN_LEFT);
         templateMap.put("MAIN_FOOTER", MAIN_FOOTER);
     }
     
