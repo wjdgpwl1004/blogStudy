@@ -21,7 +21,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(urlInterceptor)
-				.addPathPatterns("/**");
+                .addPathPatterns("/**");
+                
 	}
 
     /**정적 파일들 세팅 */
@@ -30,10 +31,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler(
                 "/img/**",
                 "/css/**",
-                "/js/**")
+                "/js/**",
+                "/html/**")
                 .addResourceLocations(
                         "classpath:/static/images/",
                         "classpath:/static/css/",
-                        "classpath:/static/js/");
+                        "classpath:/static/js/",
+                        "classpath:/html/");
     }
 }
