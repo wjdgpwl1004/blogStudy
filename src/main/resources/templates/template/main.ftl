@@ -4,7 +4,7 @@
 <body>
 <#include HEADER>
 	<div class="wrapper">
-        <#if LEFT?exists><#include LEFT></#if>
+        <#include LEFT>
                 <div class="content">
                         <div class="card">
                                 <#include template>
