@@ -14,7 +14,7 @@ import kr.or.blog.entities.Member;
 import kr.or.blog.member.repository.MemberRepository;
 import kr.or.blog.member.service.MemberService;
 
-@Service
+@Service("memberService")
 public class MemberServiceImpl implements MemberService{
 
     @Autowired
