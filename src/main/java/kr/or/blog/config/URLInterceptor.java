@@ -29,14 +29,7 @@ public class URLInterceptor extends HandlerInterceptorAdapter{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
-        String prevURI = request.getHeader("referer");
-        prevURI =  prevURI == null ? "" : prevURI.split("/").length <4 ? "/" : request.getHeader("referer").split("/")[3];
-        System.out.println(prevURI);
-        if(prevURI.equals(request.getRequestURI()) && !prevURI.equals("/"))
-                response.sendRedirect("/");
-        request.setAttribute("prevURI", prevURI);
-        
-        return true;
+                return true;
     }
 
     @Override
@@ -56,9 +49,11 @@ public class URLInterceptor extends HandlerInterceptorAdapter{
                 modelAndView.addObject("LEFT",templateLeft + Template.SUFFIX);
                 modelAndView.addObject("FOOTER",templateFooter + Template.SUFFIX);
 
-                String template = modelmap.get("template").toString();
-                modelAndView.addObject("template", template + Template.SUFFIX);
+                if(modelmap.containsKey("template")){
+                    String template = modelmap.get("template").toString();
+                    modelAndView.addObject("template", template + Template.SUFFIX);
+                }
             }
-        }  
+        }
     }
 }
