@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import kr.or.blog.entities.Member;
 /**
@@ -24,4 +25,7 @@ public interface MemberRepository extends CrudRepository<Member,String>{
     
     @Query("select m from Member m")
     List<Member> findAllMembers();
+
+    @Query("select m.seq from Member m where m.id = :id")
+	String findSeqById(@Param("id") String id);
 }

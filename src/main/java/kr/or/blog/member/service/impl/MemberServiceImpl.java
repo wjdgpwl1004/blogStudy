@@ -70,4 +70,12 @@ public class MemberServiceImpl implements MemberService{
         memberRepository.deleteById(member.getId());
     }
     
+    /**
+     * 회원 seq를 조회한다.
+     * @param member 조회할 정보가 담긴 member entity
+     * @return memberSeq
+     */
+	public String getMemberSeq(Member member){
+        return memberRepository.findSeqById(member.getId());
+    }
 }
