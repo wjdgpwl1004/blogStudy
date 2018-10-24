@@ -39,4 +39,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
                         "classpath:/static/js/",
                         "classpath:/html/");
     }
+
+    
 }
