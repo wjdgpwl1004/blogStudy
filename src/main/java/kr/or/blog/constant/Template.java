@@ -18,10 +18,15 @@ public abstract class Template {
     public final static String SUB_HEADER = "";
 
 
-    // contents templates
+    /* contents templates */
     public final static String HOME = "/main/home";
     public final static String JOIN = "/join/joinForm";
+    //member
     public final static String MEMBER_LIST = "/member/memberList";
+    //board
+    public final static String BOARD_LIST = "/board/boardList";
+    public final static String BOARD_INFO = "/board/boardInfo";
+    public final static String BOARD_FORM = "/board/boardForm";
 
     static{
         templateMap = new HashMap<String,String>();
