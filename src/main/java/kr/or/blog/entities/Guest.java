@@ -37,4 +37,7 @@ public class Guest{
 
     @Column(name="REC_STS",nullable=true,length=1)
     private String recSts;
+
+    @Column(name="MEMBER_SEQ",nullable=true,length=20)
+    private String memberSeq;
 }
