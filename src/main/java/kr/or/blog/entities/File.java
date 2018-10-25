@@ -25,11 +25,14 @@ public class File{
     private String realname;
 
     @Column(name="SIZE",nullable=true)
-    private int size;
+    private Long size;
 
     @Column(name="SUFFIX",nullable=true,length=20)
     private String suffix;
 
-    @Column(name="BOARD_SEQ",nullable=false,length=20)
-    private String boardSeq;
+    @Column(name="BOARD_SEQ")
+    private int boardSeq;
+
+    @Column(name="REC_STS",nullable=true,length=1)
+    private String recSts;
 }

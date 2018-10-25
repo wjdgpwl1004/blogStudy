@@ -10,6 +10,7 @@ public abstract class Template {
     public final static String SUFFIX = ".ftl";
     // return templates
     public final static String MAIN = "template/main";
+    public final static String MAIN_LEFT = "/template/left";
     public final static String MAIN_HEADER = "/template/header";
     public final static String MAIN_FOOTER = "/template/footer";
 
@@ -17,15 +18,21 @@ public abstract class Template {
     public final static String SUB_HEADER = "";
 
 
-    // contents templates
+    /* contents templates */
     public final static String HOME = "/main/home";
     public final static String JOIN = "/join/joinForm";
+    //member
     public final static String MEMBER_LIST = "/member/memberList";
+    //board
+    public final static String BOARD_LIST = "/board/boardList";
+    public final static String BOARD_INFO = "/board/boardInfo";
+    public final static String BOARD_FORM = "/board/boardForm";
 
     static{
         templateMap = new HashMap<String,String>();
         templateMap.put("MAIN", MAIN);
         templateMap.put("MAIN_HEADER", MAIN_HEADER);
+        templateMap.put("MAIN_LEFT",MAIN_LEFT);
         templateMap.put("MAIN_FOOTER", MAIN_FOOTER);
     }
     

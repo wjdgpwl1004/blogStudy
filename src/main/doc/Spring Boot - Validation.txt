@@ -1,0 +1,102 @@
+Spring Boot - Validation
+
+# bean-validation ? hibernate-validator ? 
+
+# Entity
+
+애노테이션을 사용하면 쉽게 Entity 유효성 검사가 가능하다.
+package = javax.vlidation.contraints 
+
+=========================================
+@Data
+public class Member {
+
+	private Long idx;
+	
+	@NotNull(message="name null")
+	private String name;
+	
+	@Min(value=14, message="min 14")
+	private Integer age;
+	
+	@NotNull(message="tel null")
+	private String tel;
+}
+=========================================
+
+@NotNull : null 검증
+@Min, @Max : 최소값 , 최대값 검증
+@Size : 범위 검증
+@Email : e-mail 검증
+@AsserTrue : true 검증
+@NotEmpty : null 이나 size 0 검증 (String, Collection)
+@NotBlack : null 이나 whitespace검증 (String)
+@Postive, @PostiveOrZero : 숫자 검증
+@Past , @PastOrPresent : 날짜 검증
+@Future, @FutrueOrPresent : 날짜 검증 
+
+
+#Controller
+
+검증하고자하는 Entity 에 @Valid 를 붙이며, 이에 대한 결과를 받기위해 BindingResult를 추가하여 사용한다.
+
+================================
+@RestController
+@RequestMapping("member")
+public class MemberController {
+
+    private final static Logger logger = Logger.getLogger(MemberController.class);
+    private final static int ZERO = 0;
+    
+    //...
+    	
+    @PostMapping
+    public ResponseEntity<?> add(@Valid @RequestBody Member member, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            String errorMessage = bindingResult.getAllErrors().get(ZERO).getDefaultMessage();
+            return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST); 
+        }
+        return new ResponseEntity<>(member, HttpStatus.OK);
+    }
+}
+================================
+
+
+
+#Custom Validation 
+
+사용자 정의 검증 애노테이션 
+
+@Interface 정의
+====================================================
+@Documented
+@Constraint(validatedBy = PhoneValidator.class)
+@Target( { ElementType.METHOD, ElementType.FIELD })
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Phone {
+    String message() default "Invalid phone number";
+    Class<?>[] groups() default {};
+    Class<? extends Payload>[] payload() default {};
+}
+====================================================
+
+ConstraintValidator 구현
+====================================================
+public class PhoneValidator implements ConstraintValidator<Phone, String> {
+
+    @Override
+    public void initialize(Phone phone) {
+    
+    }
+ 
+    @Override
+    public boolean isValid(String field, ConstraintValidatorContext cxt) {
+        return field != null && field.matches("[0-9]+")
+                && (field.length() > 8) && (field.length() < 14);
+    }
+}
+====================================================
+
+활용
+@Phone
+private String phone;
