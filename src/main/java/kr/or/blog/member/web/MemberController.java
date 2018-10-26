@@ -20,7 +20,7 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
-    @RequestMapping(path="/member")
+    @RequestMapping(path="/member",method=RequestMethod.GET)
     public String memberList(
         Model model,
         @ModelAttribute("member") Member member){
@@ -31,7 +31,7 @@ public class MemberController {
         return Template.MAIN;
     }
 
-    @RequestMapping(path="/join")
+    @RequestMapping(path="/join",method=RequestMethod.GET)
     public String joinForm(Model model){
 
         model.addAttribute("template",Template.JOIN);
@@ -42,7 +42,6 @@ public class MemberController {
     public String join(
         @PathVariable(name="id") String id,
         @ModelAttribute("member") Member member){
-
         memberService.insertMember(member);
         return "redirect:/";
     }
