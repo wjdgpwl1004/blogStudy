@@ -27,6 +27,8 @@ public abstract class Template {
     public final static String BOARD_LIST = "/board/boardList";
     public final static String BOARD_INFO = "/board/boardInfo";
     public final static String BOARD_FORM = "/board/boardForm";
+    //guest
+    public final static String GUEST_LIST = "/guest/guestList"; 
 
     static{
         templateMap = new HashMap<String,String>();

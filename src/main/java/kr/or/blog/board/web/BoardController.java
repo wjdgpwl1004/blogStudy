@@ -16,7 +16,6 @@ import kr.or.blog.boardMenu.service.BoardMenuService;
 import kr.or.blog.constant.Template;
 import kr.or.blog.entities.Board;
 import kr.or.blog.entities.BoardMenu;
-import kr.or.blog.entities.Member;
 import kr.or.blog.member.service.MemberService;
 
 @Controller
@@ -39,19 +38,9 @@ public class BoardController {
         @ModelAttribute("board") Board board,
         @ModelAttribute("boardMenu") BoardMenu boardMenu){
         
-        //해당 userId를 가지는 회원의 seq 가져오기
-        Member param = new Member();
-        param.setId(userId);
-        String memberSeq = memberService.getMemberSeq(param);
-        
-        //해당 블로그의 menuList 가져오기
-        boardMenu.setMemberSeq(memberSeq);
-        List<BoardMenu> menuList = boardMenuService.getBoardMenus(boardMenu);
-
         // 해당 블로그의 boardList 가져오기
         List<Board> boardList = boardService.getBoards(board);
 
-        model.addAttribute("menuList",menuList);
         model.addAttribute("boardList",boardList);
         model.addAttribute("template", Template.BOARD_LIST);
         return Template.MAIN;        

@@ -5,8 +5,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,7 +24,7 @@ Spring-Boot Interceptor 설정
 @Component(value="urlInterceptor")
 public class URLInterceptor extends HandlerInterceptorAdapter{
     /**logback 을 이용한 로깅  */
-    private Logger logger = LoggerFactory.getLogger(URLInterceptor.class);
+    //private Logger logger = LoggerFactory.getLogger(URLInterceptor.class);
    
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)

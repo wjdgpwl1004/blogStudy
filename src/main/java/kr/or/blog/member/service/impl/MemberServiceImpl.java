@@ -1,6 +1,8 @@
 package kr.or.blog.member.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.annotation.Resource;
@@ -52,6 +54,7 @@ public class MemberServiceImpl implements MemberService{
         String seq = idGenService.generateId("MEMBER", "MBER", 20);
         member.setSeq(seq);
         memberRepository.save(member);
+
     }
 
     /**
@@ -77,5 +80,21 @@ public class MemberServiceImpl implements MemberService{
      */
 	public String getMemberSeq(Member member){
         return memberRepository.findSeqById(member.getId());
+    }
+
+        /**
+     * 회원 아이디 중복검사를 한다.
+     * @param member - 조회할 정보가 담긴 member entity
+     * @return map - 검사 결과 
+     */
+	public Map<String, String> checkMemberId(Member member){
+        Map<String,String> result = new HashMap<>();
+        Optional<Member> optional = memberRepository.findById(member.getId());
+        String resultString = "true";
+        if(optional.isPresent()){
+            resultString = "false";
+        }
+        result.put("result",resultString);
+        return result;
     }
 }

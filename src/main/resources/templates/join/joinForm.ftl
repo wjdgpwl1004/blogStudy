@@ -1,12 +1,10 @@
-
-    <script type="text/javascript" src="/js/join.js"></script>
+<script type="text/javascript" src="/js/join.js"></script>
     <h2>Join Form</h2>
-    <form name="frm" id="frm" method="post" action="">
-    <input type="hidden" name="prevURI" value="${prevURI}"/>
+    <form name="frm" id="frm" method="post">
         <table class="joinForm">
             <tr>
                 <th><label for="id">ID : </label></th>
-                <td><input type="text" name="id" maxlength="100"/><a href="#id_check" class="btn-two cyan mini">중복검사</a></td>
+                <td><input type="text" name="id" maxlength="100"/><a onclick="idCheck(); return false;" href="#id_check" class="btn-two cyan mini">중복검사</a></td>
             </tr>
             <tr>
                 <th><label for="password"> PASSWORD : </label></th>
@@ -55,7 +53,6 @@
             </tr>
         </table>
         <div class="btnArea">
-            <button type"button" class="button" onclick="fn_list('${prevURI}');">목록</button>
-            <button type"button" class="button" onclick="fn_submit(document.frm);">가입</button>
+            <button type"button" class="button" onclick="fn_submit(document.frm); return false;">가입</button>
         </div>
     </form>

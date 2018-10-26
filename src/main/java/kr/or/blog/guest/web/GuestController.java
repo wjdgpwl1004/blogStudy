@@ -3,6 +3,7 @@ package kr.or.blog.guest.web;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,10 +25,13 @@ public class GuestController {
     public String guestList(
         Model model,
         @PathVariable(name="userId") String userId,
-        @ModelAttribute("guest") Guest guest){
-        
+        @ModelAttribute("guest") Guest guest,
+        HttpServletRequest request){
+
+        guest.setMemberSeq(request.getAttribute("memberSeq").toString());
         List<Guest> guestList = guestService.getGuests(guest);
         model.addAttribute("guestList",guestList);
+        model.addAttribute("template",Template.GUEST_LIST);
         return Template.MAIN;
     }
     
