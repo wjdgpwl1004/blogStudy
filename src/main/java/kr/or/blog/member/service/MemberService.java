@@ -1,6 +1,7 @@
 package kr.or.blog.member.service;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.blog.entities.Member;
 
@@ -43,4 +44,11 @@ public interface MemberService {
      * @return memberSeq
      */
 	public String getMemberSeq(Member member);
+
+    /**
+     * 회원 아이디 중복검사를 한다.
+     * @param member - 조회할 정보가 담긴 member entity
+     * @return map - 검사 결과 
+     */
+	public Map<String, String> checkMemberId(Member member);
 } 
