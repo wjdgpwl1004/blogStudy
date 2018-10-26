@@ -96,8 +96,8 @@ public class Board{
     length 
     문자 길이 제약조건으로 기본갓은 255 이며, String 타입에만 적용가능하다.
      */
-    @Column(name="BOARD_SEQ", nullable=false, length=20)
-    private String boardSeq;
+    @Column(name="BOARD_SEQ", nullable=false)
+    private Long boardSeq;
     
     @Column(name="BOARD_NAME", nullable=true, length=100)
     private String boardName;
