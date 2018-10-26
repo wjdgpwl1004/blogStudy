@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 public class BoardMenu{
 
     @Id
-    @Column(name="SEQ", nullable=false, length=20)
-    private String seq;
+    @Column(name="SEQ", nullable=false)
+    private Long seq;
 
     @Column(name="MEMBER_SEQ", nullable=false, length=20)
     private String memberSeq;
