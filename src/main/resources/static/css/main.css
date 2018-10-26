@@ -40,13 +40,14 @@ border: 0;
 .wrapper .sub_nav li {padding:15px 0 15px 35px; }
 .wrapper .sub_nav li a { font-size:20px; color:#6A7076; }
 .wrapper .sub_nav li a:hover { color:#18BC9C;}
+#a_hover{color:#18BC9C;}
 .sitemap {display: none;}
 #mobile_menu { display: none;}
 @media (max-width: 1143px){
 	.wrapper .content{float:none; width:100%;}
 	.wrapper .sub_nav { display: none; }
 	.nav { display: none; }
-	.sitemap {display: block; float:right; vertical-align: middle;
+	.sitemap {display: block; float:right; 
  font-size:0; width:24px; height:18px; margin:18px 15px; background:url(/img/menu.png) no-repeat; }
 	
 	/* gnb */
