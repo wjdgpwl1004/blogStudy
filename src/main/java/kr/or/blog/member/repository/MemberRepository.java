@@ -27,5 +27,8 @@ public interface MemberRepository extends CrudRepository<Member,String>{
     List<Member> findAllMembers();
 
     @Query("select m.seq from Member m where m.id = :id")
-	String findSeqById(@Param("id") String id);
+    String findSeqById(@Param("id") String id);
+    
+    @Query("select m from Member m where m.id = :id")
+    Member findMemberById(@Param("id") String id);
 }

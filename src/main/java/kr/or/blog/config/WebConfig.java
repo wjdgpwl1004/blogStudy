@@ -1,5 +1,8 @@
 package kr.or.blog.config;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +16,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableWebMvc
 public class WebConfig extends WebMvcConfigurerAdapter {
 
+    private List<String> excludePathList = new ArrayList<>();
+
+    {
+        excludePathList.add("/error");
+        excludePathList.add("/redirect**");
+    }
+    
+
+
     @Autowired
 	@Qualifier(value = "urlInterceptor")
 	private HandlerInterceptor urlInterceptor;
@@ -21,7 +33,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(urlInterceptor)
-                .addPathPatterns("/**");
+                .addPathPatterns("/**")
+                .excludePathPatterns(excludePathList);
                 
 	}
 
