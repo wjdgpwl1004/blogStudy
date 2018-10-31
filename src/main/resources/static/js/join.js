@@ -72,7 +72,8 @@ function idCheck(){
         url : `/join/${id}`,
         dataType : 'json'
     }).then(function(res){
-        if(res.result){
+        alert(res.result);
+        if(res.result == "true"){
             obj.setCheckState(true);
             obj.setMessage(MSG);
         }

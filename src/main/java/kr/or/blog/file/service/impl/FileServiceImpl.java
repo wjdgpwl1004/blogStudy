@@ -35,10 +35,7 @@ public class FileServiceImpl implements FileService{
      */
     public File getFile(File file){
         Optional<File> optional = fileRepository.findById(file.getSeq());
-        if(optional.isPresent()){
-            return optional.get();
-        }
-        return null;
+        return optional.orElseGet(() -> new File());
     }
     
     /**

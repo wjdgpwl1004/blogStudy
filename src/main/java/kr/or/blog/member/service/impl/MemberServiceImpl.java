@@ -40,11 +40,8 @@ public class MemberServiceImpl implements MemberService{
      * @return 회원정보
      */
     public Member getMember(Member member){
-        Optional<Member> memberInfo = memberRepository.findById(member.getId());
-        Member result = null;
-        if(memberInfo.isPresent())
-            result = memberInfo.get();
-        return result;
+        Optional<Member> optional = memberRepository.findById(member.getId());
+        return optional.orElseGet(() -> new Member());
     }
 
     /**
@@ -89,9 +86,9 @@ public class MemberServiceImpl implements MemberService{
      */
 	public Map<String, String> checkMemberId(Member member){
         Map<String,String> result = new HashMap<>();
-        Optional<Member> optional = memberRepository.findById(member.getId());
+        Member findResult = memberRepository.findMemberById(member.getId());
         String resultString = "true";
-        if(optional.isPresent()){
+        if(findResult != null){
             resultString = "false";
         }
         result.put("result",resultString);

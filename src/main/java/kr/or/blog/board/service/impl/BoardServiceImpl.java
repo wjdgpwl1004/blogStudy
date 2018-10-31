@@ -34,10 +34,7 @@ public class BoardServiceImpl implements BoardService{
      */
     public Board getBoard(Board board){
         Optional<Board> optional =  boardRepository.findById(board.getSeq());
-        if(optional.isPresent()){
-            return optional.get();
-        }
-        return null;
+        return optional.orElseGet(() -> new Board());
     }
 
     /**
