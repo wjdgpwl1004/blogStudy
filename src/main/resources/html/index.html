@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-compatible" content="IE=edge">
+	<meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width">
+	<title>블로그</title>
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Nanum+Gothic" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<script src="./js/jquery-3.3.1.min.js"></script>
+	<script src="./js/topmenu.js"></script>
+</head>
+<body>
+	<div class="header">
+		<h1 class="logo">
+			<a href="#"><span>B</span>STORY</a>
+		</h1>
+		<div class="nav">
+			<ul>
+				<li><a href="login.html">로그인</a></li>
+				<li><a href="#">회원가입</a></li>
+			</ul>
+		</div>
+		<a href="#" class="sitemap" id="mobile_menu_btn">sitemap</a>
+		<div id="mobile_menu">
+			<div class="mobile_menu_head">
+				<a href="login.html" class="mobile_logo">
+					로그인
+				</a>
+				<a href="#" class="mobile_logo2">
+					회원가입
+				</a>
+			</div>
+			<ul id="gnb_device">
+				<li class="th1 n1 arcodian">
+					<a href="#" class="th1_lnk">
+						<span>홈</span>
+					</a>
+				</li>
+				<li class="th1 n1 arcodian">
+					<a href="#" class="th1_lnk">
+						<span>자유게시판</span>
+					</a>
+					<ul class="depth2_ul summry">
+						<li>
+							<a href="#">sub1</a>
+						</li>
+						<li>
+							<a href="#">sub2</a>
+						</li>
+						<li>
+							<a href="#">sub3</a>
+						</li>
+					</ul>
+				</li>
+				<li class="th1 n1 arcodian">
+					<a href="#" class="th1_lnk">
+						<span>방명록</span>
+					</a>
+				</li>
+			</ul>
+			<button type="button" id="mobile_menu_close">
+				<span class="skip">닫기</span>
+			</button>
+			<script>
+				var _topmenu = new topmenu('#mobile_menu','');
+			</script>
+		</div>
+	</div>
+	<div class="wrapper">
+		<ul class="sub_nav">
+			<li><a href="#">홈</a></li>
+			<li class="active">
+				<a href="#">자유게시판</a>
+				<ul class="depth2_ul">
+					<li class="active">
+						<a href="#">sub1</a>
+					</li>
+					<li>
+						<a href="#">sub2</a>
+					</li>
+					<li>
+						<a href="#">sub3</a>
+					</li>
+				</ul>
+			</li>
+			<li><a href="#">방명록</a></li>
+		</ul>
+		<div class="content">
+			<div class="card">
+			
+			</div>
+		</div>
+	</div>
+</body>
+</html>
